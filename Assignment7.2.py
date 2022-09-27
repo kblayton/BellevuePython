@@ -37,7 +37,7 @@ def checkCave(chosenCave): # KL - indention error
 	print()
 	#sleep for 2 seconds
 	time.sleep(2)
-	friendlyCave = random.randint(1, 2)
+	friendlyCave = random.randint(1, 2)   
 
 	if chosenCave == str(friendlyCave):
 		print('Gives you his treasure!')
@@ -45,7 +45,7 @@ def checkCave(chosenCave): # KL - indention error
 		print 'Gobbles you down in one bite!' # KL - print statement need () around string
 
 playAgain = 'yes'
-while playAgain = 'yes' or playAgain = 'y': # KL - while operator needs changed (While x == 'y')
+while playAgain = 'yes' or playAgain = 'y': # KL - while operator needs changed (While x == 'y') while playAgain == 'yes' or playAgain == 'y'
 	displayIntro()
 	caveNumber = choosecave() # choosecave is not defined (create or function fix name)
 	

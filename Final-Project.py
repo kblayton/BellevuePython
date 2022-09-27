@@ -5,7 +5,7 @@ def main():
     appid = '2cbbdc039c8b366bd8f6e28fb6d14fb1'
 
 print("")
-city_zip = input()
+city_zip = input() # getting user input for city or zip
 
 url = f"{base_url}?q={city}&units=imperial&APPID={appid}"
 print(url)
