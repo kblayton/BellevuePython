@@ -1,7 +1,3 @@
-""" 
-There are couple of mistakes in here that I don't know how to fix. 
-My program won't change to the directory that is created by the user and I can't get it to read the contents of the file it creates."""
-
 import os
 
 # Letting the user know what directory they are currently in
@@ -34,6 +30,12 @@ with open(filename, 'w') as f:
     f.write(address + ', ')
     f.write(phone_number) 
     print(contents)
+
+
+
+
+
+
 
 
 
