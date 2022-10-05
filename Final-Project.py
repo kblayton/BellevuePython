@@ -8,32 +8,29 @@
     8. Use try blocks when establishing connection to webservice. You must print a message to the user indicating whether or not the connection was successful - ##PROBLEMS
     """
 
-import json, requests
+import requests
 
-base_url = "https://api.openweathermap.org/data/2.5/weather"
-appid = '2cbbdc039c8b366bd8f6e28fb6d14fb1'
+def userInput():
+    return input("Please enter your city or zip code: ")
+
+def getUrl(url):
+    try:
+        r = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={url}&units=&APPID=2cbbdc039c8b366bd8f6e28fb6d14fb1')    
+        r.raise_for_status()
+        return r.json()
+    except requests.exceptions.HTTPError as err:
+        raise SystemExit(err)
 
 def main():
-    city_zip = input("Please enter your city or zip code: ") # getting user input for city or zip
-    url = f"{base_url}?q={city_zip}&units=imperial&APPID={appid}" #Building URL
-    response = requests.get(url)
-    connection = response.status_code
-    unformatted_data = response.json()
-    temp = main(unformatted_data)["main"]["temp"]
-    print(f"The current temp is: {temp}")
-    temp_max = unformatted_data["main"]["temp_max"]
-    print(f"The max temp is: {temp_max}")
+    lookup = userInput()
+    print(getUrl(lookup))
 
-#Validating if we were able to make a succesful connection
-#try:    
-#    if connection == 200:
-#        print("The connection to OpenWeather was successful!")
-#except ConnectionError or KeyError:
-#        print("The connection was not successful. Please try again later")
+if __name__ == '__main__':
+    main()
 
 answer = 'yes'
 while answer == 'yes':
-    main()
+    userInput()
 
     print("Would you like to get the weather again? (yes or no): ")
     answer = input()
