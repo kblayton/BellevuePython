@@ -30,9 +30,10 @@ if __name__ == '__main__':
 
 answer = 'yes'
 while answer == 'yes':
-    userInput()
-
+    
     print("Would you like to get the weather again? (yes or no): ")
     answer = input()
-    if answer == 'no':
+    if answer == 'yes':
+        userInput()
+    else:
         print("Have a great day!")
